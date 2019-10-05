@@ -1,12 +1,18 @@
+{{#each errors }}
+<div class="alert alert-danger" role="alert">
+  {{text}}
+</div>
+{{/each}}
+
 <div>
     <div>
         <h3>New Note</h3>
-        <form action="/notes/new-note" method="POST">
+        <form action="/notes/add" method="POST">
             <div class="form-group">
                 <input type="text" name="title" placeholder="Title" autofocus />
             </div>
              <div class="form-group">
-                <textarea name="description" placeholder="Description" rows="5"></textarea>
+                <textarea name="description" placeholder="Description" rows="4"></textarea>
             </div>
             <div class="form-group">
                 <button type="submit" class="submit">
