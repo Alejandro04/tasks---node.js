@@ -1,0 +1,69 @@
+body{
+    font-family: 'Mansalva', cursive;
+    background: #1c92d2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ececec, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container_index{
+    background: #eee;
+    text-align: center;
+    border-radius: 10px;
+}
+
+input{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid cadetblue;
+}
+textarea{
+    width: 100%;
+    border: 1px solid cadetblue;
+    font-size: 20px;
+    text-align: center;
+}
+.form-group{
+    padding: 10px;
+}
+.submit{
+    width: 100%;
+    padding: 10px;
+    background: cadetblue;
+    color: white;
+    border: 0;
+    font-size: 18px;
+}
+.submit:hover{
+    cursor: pointer;
+    background: cornflowerblue;
+}
+
+@media screen and (max-width: 480px) {
+    .container_index{
+        padding: 20px;
+        width: 85%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .container_index{
+        padding: 40px;
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .container_index{
+        padding: 80px;
+        width: 40%;
+        margin: auto;
+    }
+    
+}
+
+@media screen and (min-width: 950px) {
+}
