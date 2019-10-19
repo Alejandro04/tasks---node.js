@@ -34,7 +34,12 @@ textarea{
 }
 .submit:hover{
     cursor: pointer;
-    background: cornflowerblue;
+    background: rgb(172, 190, 223);
+}
+
+.container_notes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 @media screen and (max-width: 480px) {
