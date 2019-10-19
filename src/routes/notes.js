@@ -4,6 +4,12 @@ const router = express.Router();
 const Note = require('../models/Note')
 
 
+router.get('/notes', async (req, res) => {
+  const notes = await Note.find()
+  
+  res.render('notes/all', {notes})
+})
+
 router.get('/notes/add', (req, res) => {
     res.render('notes/add')
 })
@@ -34,14 +40,21 @@ router.post('/notes/add', async (req, res) => {
     }
 })
 
-router.get('/notes', async (req, res) => {
-  const notes = await Note.find()
-  
-  res.render('notes/all', {notes})
+
+router.get('/notes/edit/:id', async (req, res) => {
+  const note = await Note.findById(req.params.id)
+  res.render('notes/edit', {note})
 })
 
-router.get('/notes/edit', (req, res) => {
-    res.render('notes/edit')
-})
+router.put('/notes/edit/:id', async (req, res) => {
+  const { title, description } = req.body;
+  await Note.findByIdAndUpdate(req.params.id, {title, description});
+  res.redirect('/notes');
+});
+
+router.delete('/notes/delete/:id',  async (req, res) => {
+  await Note.findByIdAndDelete(req.params.id);
+  res.redirect('/notes');
+});
 
 module.exports = router;

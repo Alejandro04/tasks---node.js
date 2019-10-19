@@ -1,5 +1,5 @@
-
 <h1>Notas</h1>
+<a href="/notes/add">Crear nota</a>
 <hr>
 
 <div class="container_notes">
@@ -28,9 +28,11 @@
 
     {{else}}
 
-    <h1>Hola {{user.name}}</h1>
-    <p>No tienes notas todavía.</p>
-    <a href="/notes/add">Crea la primera!</a>
+    <div style="text-align:center">
+        <h1>Hola {{user.name}}</h1>
+        <p>No tienes notas todavía.</p>
+        <a href="/notes/add">Crea la primera!</a>
+    </div>
 
     {{/each}}
 </div>
