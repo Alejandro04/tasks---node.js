@@ -1,16 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const Note = require('../models/Note')
 
-router.get('/notes', (req, res) => {
-    res.render('notes/all')
-})
 
 router.get('/notes/add', (req, res) => {
     res.render('notes/add')
 })
 
-router.post('/notes/add', (req, res) => {
+router.post('/notes/add', async (req, res) => {
     const { title, description } = req.body;
     const errors = [];
     if (!title) {
@@ -26,8 +24,20 @@ router.post('/notes/add', (req, res) => {
         description
       });
     } else {
-      res.send("#vamos bien")
+      const newNote = new Note({
+        title,
+        description
+      })
+
+      await newNote.save()
+      res.redirect('/notes')
     }
+})
+
+router.get('/notes', async (req, res) => {
+  const notes = await Note.find()
+  
+  res.render('notes/all', {notes})
 })
 
 router.get('/notes/edit', (req, res) => {
