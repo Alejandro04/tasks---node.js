@@ -30,14 +30,11 @@ router.post('/notes/add', async (req, res) => {
         description
       });
     } else {
-      const newNote = new Note({
-        title,
-        description
-      })
-
-      await newNote.save()
-      req.flash('success_msg', 'Nota agregada');
-      res.redirect('/notes')
+      const newNote = new Note({title, description});
+      newNote.user = req.user.id;
+      await newNote.save();
+      req.flash('success_msg', 'Note Added Successfully');
+      res.redirect('/notes');
     }
 })
 
